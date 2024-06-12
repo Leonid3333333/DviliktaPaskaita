@@ -1,0 +1,245 @@
+﻿@page
+@using WebApplication3
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .custom-button {
+            color: inherit;
+            text-decoration: none;
+            border: 1px solid;
+            padding: 10px 20px;
+            display: inline-block;
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="text-center mb-4">
+            <h1 class="display-3">Sveiki atvyke i nuomuos servisa</h1>
+        </div>
+
+        <div class="text-center mb-4">
+            <a class="custom-button" style="border-color: black;" href="/Cars">Eiti į Masinu sarasa</a>
+            <a class="custom-button" style="border-color: blue;" href="/Customer">Eiti į Klientu sarasa</a>
+            <a class="custom-button" style="border-color: black;" href="/Rentals">Gauti visa Nuomos sarasa</a>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2 class="card-title">Naujos Masinos registravimas</h2>
+                <form method="post" action="http://localhost:5099/AddCar">
+                    <div class="form-group">
+                        <label for="Id">Masinos Id</label>
+                        <input type="number" class="form-control" id="Id" name="Id" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Make">Masinos marke</label>
+                        <input type="text" class="form-control" id="Make" name="Make" />
+                    </div>
+                    <div class="form-group">
+                        <label for="model">Masinos modelis</label>
+                        <input type="text" class="form-control" id="model" name="model" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Year">Masinos Pagaminimo Metai</label>
+                        <input type="number" class="form-control" id="Year" name="Year" />
+                    </div>
+                    <div class="form-group">
+                        <label for="RegistrationNumber">Masinos registacijos numeris</label>
+                        <input type="text" class="form-control" id="RegistrationNumber" name="RegistrationNumber" />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Uzregistruoti masina</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <h3 class="card-title">Naujo kliento registravimas</h3>
+                <form method="post" action="http://localhost:5099/AddCustomer">
+                    <div class="form-group">
+                        <label for="Id">Kliento Id</label>
+                        <input type="number" class="form-control" id="Id" name="Id" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Name">Kliento Vardas</label>
+                        <input type="text" class="form-control" id="Name" name="Name" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Email">Kliento Email</label>
+                        <input type="text" class="form-control" id="Email" name="email" />
+                    </div>
+                    <div class="form-group">
+                        <label for="PhoneNumber">Telefono numeris</label>
+                        <input type="number" class="form-control" id="PhoneNumber" name="PhoneNumber" />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Uzregistruoti nauja klienta</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <h3 class="card-title">Naujos nuomos registravimas</h3>
+                <form method="post" action="http://localhost:5099/RentCar">
+                    <div class="form-group">
+                        <label for="CarId">Masinos Id</label>
+                        <input type="text" class="form-control" id="CarId" name="CarId" />
+                    </div>
+                    <div class="form-group">
+                        <label for="CustomerId">Kliento Id</label>
+                        <input type="text" class="form-control" id="CustomerId" name="CustomerId" />
+                    </div>
+                    <div class="form-group">
+                        <label for="FromDate">From Date</label>
+                        <input type="date" class="form-control" id="FromDate" name="FromDate" />
+                    </div>
+                    <div class="form-group">
+                        <label for="ToDate">To Date</label>
+                        <input type="date" class="form-control" id="ToDate" name="ToDate" />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Uzregistruoti nauja uzsakyma</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+@*     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ *@</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+@* @page
+@using WebApplication3;
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+    <a style="color: inherit;
+         text-decoration: none;
+         border: 1px solid black;
+         padding: 10px 20px;
+         display: inline-block;
+         font-family: sans-serif;" href="/Cars">Eiti į Masinu sarasa</a>
+
+    <a style="color: inherit;
+         text-decoration: none;
+         border: 1px solid blue;
+         padding: 10px 20px;
+         display: inline-block;
+         font-family: sans-serif;" href="/Customer">Eiti į Klientu sarasa</a>
+
+    <a style="color: inherit;
+             text-decoration: none;
+             border: 1px solid black;
+             padding: 10px 20px;
+             display: inline-block;
+                     font-family: sans-serif;" href="/Rentals">Gauti visa Nuomos sarasa</a>
+
+
+}
+
+
+<div class="text-center">
+    <h1 class="display-3">Sveiki atvyke i nuomuos servisa</h1>
+
+</div>
+
+
+    <div class="text-md-center">
+
+    <h2>Naujos Masinos registravimas</h2>
+
+    <form method="post" action="http://localhost:5099/AddCar">
+        <label for="Id">Masinos Id</label>
+        <input type="number" id="Id" name="Id" />
+        <br />
+
+        <label for="make">Masinos marke</label>
+        <input type="text" id="Make" name="Make" />
+        <br />
+        <label for="model">Masinos modelis</label>
+        <input type="text" id="model" name="model" />
+        <br />
+        <label for="Wear">Masinos Pagaminimo Metai</label>
+        <input type="number" id="Year" name="Year" />
+        <br />
+        <label for="RegistrationNumber">Masinos registacijos numeris</label>
+        <input type="text" id="RegistrationNumber" name="RegistrationNumber" />
+        <br />
+        <br />
+        <button type="submit">Uzregistruoti masina</button>
+    </form>
+    </div>
+    <br />
+
+<div class="text-lg-center">
+<h3>Naujo kliento registravimas</h3>
+
+<form method="post" action="http://localhost:5099/AddCustomer">
+    <label for="CarId">kliento Id</label>
+    <input type="number" id="Id" name="Id" />
+    <br />
+
+    <label for="Name">Kliento Vardas</label>
+    <input type="text" id="name" name="Name" />
+    <br />
+    <label for="Email">Kliento Email</label>
+    <input type="text" id="email" name="email" />
+    <br />
+    <label for="PhoneNumber">Telefono numeris</label>
+    <input type="number" id="" name="PhoneNumber" />
+    <br />
+    <br />
+    <button type="submit">Uzregistruoti nauja klienta</button>
+</form>
+</div>
+
+<div class="text-lg-center">
+    <h3>Naujos nuomos registravimas</h3>
+
+    <form method="post" action="http://localhost:5099/RentCar">
+        <label for="CarId">Masinos Id</label>
+        <input type="CarId" id="Id" name="CarId" />
+        <br />
+        <label for="CostumerId">Kliento Id</label>
+        <input type="CustomerId" id="" name="CustomerId" />
+        <br />
+        <label for="FromDate">FromDate</label>
+        <input type="FromDate" id="name" name="FromDate" />
+        <br />
+        <label for="ToDate">ToDate</label>
+        <input type="ToDate" id="email" name="ToDate" />
+        <br />
+        <br />
+        <br />
+        <button type="submit">Uzregistruoti nauja uzsakyma</button>
+    </form>
+</div>
+
+
+ *@
+
+@*     <p>Mano vartotojo id yra @Model.VartotojoId</p>
+    @for (int i = 0; i < 10; i++)
+    {
+        <p>Spausdinu p elementa jau @(i + 4) karta</p>
+    }
+ *@ 

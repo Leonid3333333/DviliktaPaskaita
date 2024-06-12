@@ -10,6 +10,7 @@ namespace YourNamespace.Repositories
 {
     public class CustomerRepository : ICustomerRepository
     {
+        private const string Sql = "SELECT * FROM Customers WHERE Id = @Id";
         private readonly string _connectionString;
 
         public CustomerRepository(string connectionString)
@@ -55,9 +56,10 @@ namespace YourNamespace.Repositories
             await db.ExecuteAsync(sql, new { Id = id });
         }
 
-        public Task<Customer> GetCustomerByIdAsync(object customer, object id)
+        public async Task<Customer> GetCustomerByIdAsync(object customer, object id)
         {
-            throw new NotImplementedException();
+            using var db = Connection;
+            return await db.QueryFirstOrDefaultAsync<Customer>(Sql, new { Id = id });
         }
 
         public Task<Customer> UpdateCustomerAsync()

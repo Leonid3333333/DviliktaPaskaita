@@ -19,10 +19,10 @@ namespace YourNamespace.Repositories
 
         private IDbConnection Connection => new SqlConnection(_connectionString);
 
-        public async Task<IEnumerable<Car>> GetAllCarsAsync()
+        public async Task<IEnumerable<Cars>> GetAllCarsAsync()
         {
             using var db = Connection;
-            return await db.QueryAsync<Car>("SELECT * FROM Cars");
+            return await db.QueryAsync<Cars>("SELECT * FROM Cars");
         }
 
         public async Task<IEnumerable<OilFuelCar>> GetOilFuelCarsAsync()
@@ -41,13 +41,13 @@ namespace YourNamespace.Repositories
             return await db.QueryAsync<ElectricCar>(sql);
         }
 
-        public async Task<Car> GetCarByIdAsync(int id)
+        public async Task<Cars> GetCarByIdAsync(int id)
         {
             using var db = Connection;
-            return await db.QueryFirstOrDefaultAsync<Car>("SELECT * FROM Cars WHERE Id = @Id", new { Id = id });
+            return await db.QueryFirstOrDefaultAsync<Cars>("SELECT * FROM Cars WHERE Id = @Id", new { Id = id });
         }
 
-        public async Task AddCarAsync(Car car)
+        public async Task AddCarAsync(Cars car)
         {
             using var db = Connection;
             var sql = @"INSERT INTO Cars (Make, Model, Year, RegistrationNumber) 
@@ -67,7 +67,7 @@ namespace YourNamespace.Repositories
             }
         }
 
-        public async Task UpdateCarAsync(Car car)
+        public async Task UpdateCarAsync(Cars car)
         {
             using var db = Connection;
             var sql = @"UPDATE Cars SET Make = @Make, Model = @Model, Year = @Year, RegistrationNumber = @RegistrationNumber
@@ -94,6 +94,11 @@ namespace YourNamespace.Repositories
         }
 
         public Task<OilFuelCar> GetCarByIdAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task GetAllCustomersAsync()
         {
             throw new NotImplementedException();
         }

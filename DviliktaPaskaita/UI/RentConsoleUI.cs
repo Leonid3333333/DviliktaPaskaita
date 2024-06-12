@@ -140,7 +140,7 @@ namespace YourNamespace.UI
                 return;
             }
 
-            var car = await _rentService.GetCarByIdAsync(carId);
+            Cars car = await _rentService.GetCarByIdAsync(carId);
             if (car == null)
             {
                 Console.WriteLine("Car not found.");
@@ -210,6 +210,7 @@ namespace YourNamespace.UI
                 Console.WriteLine($"{customer.Id} - {customer.Name} ({customer.Email}, {customer.PhoneNumber})");
             }
         }
+
 
         private async Task AddCustomerAsync()
         {
@@ -321,5 +322,7 @@ namespace YourNamespace.UI
                 Console.WriteLine($"Error: {ex.Message}");
             }
         }
+
+
     }
 }

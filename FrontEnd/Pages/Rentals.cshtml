@@ -1,0 +1,46 @@
+﻿@page
+
+@using System.Runtime.ConstrainedExecution
+@using WebApplication3;
+@using YourNamespace.Models;
+@model FrontEnd.Pages.Rentals
+@namespace FrontEnd.Pages
+
+
+<h2>All Rented Cars</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>CarId</th>
+            <th>CustomerId</th>
+            <th>FromDate</th>
+            <th>ToDate</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Rental rental in Model.rental)
+        {
+            <tr>
+                <td>@rental.CarId</td>
+                <td>@rental.CustomerId </td>
+                <td>@rental.FromDate</td>
+                <td>@rental.ToDate</td>
+            
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+@* <div class="text-center">
+    <h2>Cia Isnuomotu masinu sarasas</h2>
+
+    @foreach (Rental rental in Model.rental)
+    {
+      <p style="color:lightseagreen; font-size: 22px;">@rental.CarId   @rental.CustomerId  @rental.FromDate   @rental.ToDate </p>
+    }
+
+ *@</div>

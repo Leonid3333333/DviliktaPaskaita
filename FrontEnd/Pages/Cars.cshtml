@@ -1,0 +1,42 @@
+﻿@page
+@using System.Runtime.ConstrainedExecution
+@using WebApplication3;
+@using YourNamespace.Models;
+@model FrontEnd.Pages.CarsModel
+@namespace FrontEnd.Pages
+
+
+<h2>All Cars</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Make</th>
+            <th>Model</th>
+            <th>Year</th>
+            <th>Fuel Type</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var car in Model.Car)
+        {
+            <tr>
+                <td>@car.Make</td>
+                <td>@car.Model</td>
+                <td>@car.Year</td>
+@*               //  <td>@car.FuelType</td>
+ *@            </tr>
+        }
+    </tbody>
+</table>
+
+@* <div class="text-center">
+    <h2>Cia rodomas automibiliu sarasas</h2>
+   
+    @foreach (Cars Cars in Model.Car )
+    {
+        <p style="color:lightseagreen; font-size: 20px;">@Cars.Make     @Cars.Model</p>
+    }
+
+ *@</div>

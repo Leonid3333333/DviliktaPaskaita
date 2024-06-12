@@ -12,6 +12,5 @@ namespace YourNamespace.Repositories
         Task UpdateCustomerAsync(Customer customer);
         Task DeleteCustomerAsync(int id);
         Task<Customer> GetCustomerByIdAsync(object customer, object id);
-        Task<Customer> UpdateCustomerAsync();
     }
 }

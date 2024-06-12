@@ -1,0 +1,47 @@
+﻿@page
+@using System.Runtime.ConstrainedExecution
+@using WebApplication3;
+@using YourNamespace.Models;
+@model FrontEnd.Pages.CustomerModel
+
+@namespace FrontEnd.Pages
+
+
+<h2>All Customer</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+@*             <th>Year</th>
+            <th>Fuel Type</th>
+ *@            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Customer customer in Model.customer)
+        {
+            <tr>
+                <td>@customer.Name</td>
+                <td>@customer.Email</td>
+                @* <td>@car.Year</td> *@
+                @*               //  <td>@car.FuelType</td>
+            *@
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+@* <div class="text-center">
+    <h2>Cia rodomas Klientu sarasas</h2>
+
+    @foreach (Customer customer in Model.customer)
+    {
+        <p style="color:lightseagreen; font-size: 22px;">@customer.Name     @customer.Email</p>
+    }
+
+</div>
+ *@

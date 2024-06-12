@@ -12,5 +12,6 @@ namespace YourNamespace.Repositories
         Task UpdateRentalAsync(Rental rental);
         Task DeleteRentalAsync(int id);
         Task<bool> IsCarAvailableAsync(int carId, DateTime fromDate, DateTime toDate);
+        Task<bool> IsCarAvailableAsync();
     }
 }

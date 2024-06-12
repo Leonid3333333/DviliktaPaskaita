@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 using Dapper;
 using YourNamespace.Models;
 using System.Data.SqlClient;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace YourNamespace.Repositories
 {
     public class RentalRepository : IRentalRepository
     {
-        private readonly string _connectionString;
+        public readonly string _connectionString;
 
         public RentalRepository(string connectionString)
         {
@@ -31,6 +32,7 @@ namespace YourNamespace.Repositories
             using var db = Connection;
             return await db.QueryFirstOrDefaultAsync<Rental>("SELECT * FROM Rentals WHERE Id = @Id", new { Id = id });
         }
+
 
         public async Task AddRentalAsync(Rental rental)
         {
@@ -67,6 +69,11 @@ namespace YourNamespace.Repositories
                             )";
             var count = await db.ExecuteScalarAsync<int>(sql, new { CarId = carId, FromDate = fromDate, ToDate = toDate });
             return count == 0;
+        }
+
+        public Task<bool> IsCarAvailableAsync()
+        {
+            throw new NotImplementedException();
         }
     }
 }

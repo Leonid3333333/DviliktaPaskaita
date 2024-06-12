@@ -6,13 +6,14 @@ namespace YourNamespace.Repositories
 {
     public interface ICarRepository
     {
-        Task<IEnumerable<Car>> GetAllCarsAsync();
+        Task<IEnumerable<Cars>> GetAllCarsAsync();
         Task<IEnumerable<OilFuelCar>> GetOilFuelCarsAsync();
         Task<IEnumerable<ElectricCar>> GetElectricCarsAsync();
-        Task<Car> GetCarByIdAsync(int id);
-        Task AddCarAsync(Car car);
-        Task UpdateCarAsync(Car car);
+        Task<Cars> GetCarByIdAsync(int id);
+        Task AddCarAsync(Cars car);
+        Task UpdateCarAsync(Cars car);
         Task DeleteCarAsync(int id);
         Task<OilFuelCar> GetCarByIdAsync();
+        Task GetAllCustomersAsync();
     }
 }
