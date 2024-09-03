@@ -8,12 +8,15 @@ using YourNamespace.Models;
 using YourNamespace.Services;
 using WebApplication3.Repositories;
 using Serilog;
+using Microsoft.EntityFrameworkCore;
+using DviliktaPaskaita.Repositories;
 
 namespace WebApplication3.Controllers
 {
     public class RentServiceControler : Controller
     {
         private readonly IRentService _rentService;
+        private readonly IDatabaseRepository _repository;
 
         public RentServiceControler(IRentService rentService)
         {
@@ -143,6 +146,19 @@ namespace WebApplication3.Controllers
             return Ok(customers);
         }
 
+        [HttpGet("GetAllCustomersIntity")]
+        public IActionResult GetCustomers()
+        {
+            var customers = _repository.GetCustomers();
+            return Ok(customers);
+        }
+        //[HttpGet]
+        //public IActionResult GetCustomers()
+        //{
+        //    var customers = _dbContext.customers.ToList();
+        //    _.GetCustomers();
+        //    return Ok(customers);
+        //}
 
         //[HttpPost]
         //public async Task<ActionResult> Create(Carz car)

@@ -27,6 +27,9 @@ namespace YourNamespace
             var rentConsoleUI = new RentConsoleUI(rentService);
 
             await rentConsoleUI.StartAsync();
+            //
+            //IDatabaseRepository databaseRepository = new DataBaseRepository();
+            //databaseRepository.Add
         }
     }
 }

@@ -10,6 +10,8 @@ namespace YourNamespace.Repositories
 {
     public class CustomerRepository : ICustomerRepository
     {
+
+
         private const string Sql = "SELECT * FROM Customers WHERE Id = @Id";
         private readonly string _connectionString;
 
